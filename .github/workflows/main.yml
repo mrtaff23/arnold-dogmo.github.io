@@ -36,6 +36,10 @@ jobs:
         # Wir listen nochmal alles auf, um sicherzugehen
         run: ls -R ..
 
+      - name: Fix package.json for Linux
+        # Entfernt das Windows-ARM-Paket, damit der Linux-Server nicht abstürzt
+        run: npm pkg delete devDependencies.@rollup/rollup-win32-arm64-msvc
+
       - name: Install Dependencies (Ignoriere Lockfile)
         run: npm install --no-package-lock
 
