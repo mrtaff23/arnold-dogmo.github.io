@@ -17,8 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-    # WICHTIG: Das hier sagt GitHub, dass alle Befehle IM Ordner 'my-portfolio' ausgeführt werden sollen
+
     defaults:
       run:
         working-directory: ./my-portfolio
@@ -32,16 +31,14 @@ jobs:
         with:
           node-version: 20
 
-      - name: 🕵️ Debug - Zeige Dateien
-        # Wir listen nochmal alles auf, um sicherzugehen
-        run: ls -R .
+      - name:  Repair lockfile (npm install)
+        run: npm install
 
-      - name: Fix package.json for Linux
-        # Entfernt das Windows-ARM-Paket sauber via Node.js Script, damit Linux nicht abstürzt
-        run: node -e "let pkg=require('./package.json'); if(pkg.devDependencies) delete pkg.devDependencies['@rollup/rollup-win32-arm64-msvc']; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));"
-
-      - name: Install Dependencies (Ignoriere Lockfile)
-        run: npm ci
+      - name: 📦 Save repaired lockfile
+        uses: actions/upload-artifact@v4
+        with:
+          name: repaired-lockfile
+          path: ./package-lock.json
 
       - name: Build
         run: npm run build
@@ -49,7 +46,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # WICHTIG: Der 'dist' Ordner ist jetzt auch im Unterordner
           path: './dist'
 
   deploy:
@@ -61,4 +57,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages
