@@ -25,11 +25,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # Wir entfernen 'cache: npm', um den "Not Found" Fehler zu umgehen
+         
           
-      - name: Install dependencies
-        # Wir nutzen 'install' statt 'ci', das ist toleranter bei Zeitstempel-Unterschieden
-        run: npm install
+      - name: Clean install for Linux
+        run: |
+          rm -f package-lock.json
+          rm -rf node_modules
+          npm install
 
       - name: Build
         run: npm run build
