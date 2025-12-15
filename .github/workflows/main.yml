@@ -34,7 +34,7 @@ jobs:
 
       - name: 🕵️ Debug - Zeige Dateien
         # Wir listen nochmal alles auf, um sicherzugehen
-        run: ls -R ..
+        run: ls -R .
 
       - name: Fix package.json for Linux
         # Entfernt das Windows-ARM-Paket sauber via Node.js Script, damit Linux nicht abstürzt
