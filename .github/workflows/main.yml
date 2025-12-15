@@ -17,6 +17,12 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    # WICHTIG: Das hier sagt GitHub, dass alle Befehle IM Ordner 'my-portfolio' ausgeführt werden sollen
+    defaults:
+      run:
+        working-directory: ./my-portfolio
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,8 +32,11 @@ jobs:
         with:
           node-version: 20
 
+      - name: 🕵️ Debug - Zeige Dateien
+        # Wir listen nochmal alles auf, um sicherzugehen
+        run: ls -R ..
+
       - name: Install Dependencies (Ignoriere Lockfile)
-       
         run: npm install --no-package-lock
 
       - name: Build
@@ -36,7 +45,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          # WICHTIG: Der 'dist' Ordner ist jetzt auch im Unterordner
+          path: './my-portfolio/dist'
 
   deploy:
     environment:
