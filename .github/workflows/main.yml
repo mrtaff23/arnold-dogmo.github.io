@@ -50,7 +50,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # WICHTIG: Der 'dist' Ordner ist jetzt auch im Unterordner
-          path: './my-portfolio/dist'
+          path: './dist'
 
   deploy:
     environment:
