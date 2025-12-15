@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "title": "AI Underwriting Assistant",
+    "category": "insurance",
+    "subCategory": "ml",
+    "description": "Automated risk assessment tool using Random Forest to predict insurance claim probability based on demographics.",
+    "tech": ["Python", "Scikit-Learn", "FastAPI"],
+    "links": {
+      "github": "https://github.com/your-username/ai-underwriting",
+      "colab": "https://colab.research.google.com/drive/your-notebook-id",
+      "demo": "https://your-demo-link.com"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Algorithmic Trading Bot",
+    "category": "finance",
+    "subCategory": "software",
+    "description": "High-frequency trading bot implementing moving average crossover strategies and backtesting engine.",
+    "tech": ["Python", "Pandas", "Docker"],
+    "links": {
+      "github": "https://github.com/your-username/algo-trading-bot",
+      "demo": null
+    }
+  },
+  {
+    "id": 3,
+    "title": "NeoBank Dashboard",
+    "category": "web",
+    "subCategory": "finance",
+    "description": "Responsive banking dashboard for visualizing spending habits, managing virtual cards, and P2P transfers.",
+    "tech": ["React", "Tailwind", "Node.js"],
+    "links": {
+      "github": "https://github.com/your-username/neobank-dashboard",
+      "demo": "https://neobank-demo.vercel.app"
+    }
+  },
+  {
+    "id": 4,
+    "title": "Customer Churn Predictor",
+    "category": "ml",
+    "subCategory": "datascience",
+    "description": "EDA and predictive modeling to identify at-risk customers in the telecom sector with visualization.",
+    "tech": ["Jupyter", "XGBoost", "Matplotlib"],
+    "links": {
+      "github": "https://github.com/your-username/churn-predictor",
+      "colab": "https://colab.research.google.com/drive/your-notebook-id",
+      "demo": null
+    }
+  },
+  {
+    "id": 5,
+    "title": "Pocket Insure App",
+    "category": "app",
+    "subCategory": "insurance",
+    "description": "Micro-insurance mobile application allowing users to insure items instantly using computer vision.",
+    "tech": ["React Native", "Firebase", "TF Lite"],
+    "links": {
+      "github": "https://github.com/your-username/pocket-insure",
+      "demo": "https://play.google.com/store/apps/details?id=com.example.pocketinsure"
+    }
+  },
+  {
+    "id": 6,
+    "title": "Fraud Detection Engine",
+    "category": "finance",
+    "subCategory": "ml",
+    "description": "Real-time transaction monitoring system detecting anomalies using unsupervised learning.",
+    "tech": ["Spark", "Kafka", "Python"],
+    "links": {
+      "github": "https://github.com/your-username/fraud-detection",
+      "colab": "https://colab.research.google.com/drive/your-notebook-id",
+      "demo": null
+    }
+  }
+]
