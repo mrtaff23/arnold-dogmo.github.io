@@ -1,4 +1,4 @@
-name: Deploy Portfolio to Pages
+name: Deploy Portfolio
 
 on:
   push:
@@ -20,22 +20,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-         
-          
-      - name: Clean install for Linux
-        run: |
-          rm -f package-lock.json
-          rm -rf node_modules
-          npm install
+
+      - name: Install Dependencies (Ignoriere Lockfile)
+       
+        run: npm install --no-package-lock
 
       - name: Build
         run: npm run build
-        
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
